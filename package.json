@@ -32,5 +32,8 @@
     "jest": "^29.2.2",
     "prisma": "^4.10.1",
     "ts-jest": "^29.0.3"
+  },
+  "prisma": {
+    "schema": "./src/shared/infra/database/prisma/schema.prisma"
   }
 }
