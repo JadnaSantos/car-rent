@@ -5,8 +5,8 @@ services:
     restart: always
     container_name: cars-sales
     ports:
-      - "5433:5432"
+      - 5432:5432
     environment:
       POSTGRES_USER: prisma
-      POSTGRES_PASSWORD: prisma
-      POSTGRES_DB: tests
+      POSTGRES_PASSWORD: prismapassword
+      POSTGRES_DB: prisma
