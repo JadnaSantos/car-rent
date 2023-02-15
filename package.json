@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/server.ts"
+  },
   "dependencies": {
     "init": "^0.1.2",
     "celebrate": "^15.0.1",
