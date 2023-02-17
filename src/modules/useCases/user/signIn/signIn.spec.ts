@@ -1,9 +1,9 @@
 
+import { IUsersRepository } from '../../../../shared/infra/database/interfaces/IUserRepository';
+import { NotFoundError } from '../../../../shared/infra/http/errors/not-found';
+import { PasswordCompare } from '../../../contracts/PasswordCompare';
+import { TokenGenerator } from '../../../contracts/TokenGenerator';
 import { SignInUseCase } from './sign-in';
-import { TokenGenerator } from '../../contracts/TokenGenerator';
-import { PasswordCompare } from '../../contracts/PasswordCompare';
-import { NotFoundError } from '../../../shared/infra/http/errors/not-found';
-import { IUsersRepository } from '../../../shared/infra/database/interfaces/IUserRepository';
 
 interface SutTypes {
   sut: SignInUseCase

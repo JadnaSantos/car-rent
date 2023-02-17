@@ -13,3 +13,15 @@ export const userCredentialsSigInSchema = joi.object({
   username: joi.string().email().required(),
   password: joi.string().required()
 });
+
+
+export const carCredentialsShema = joi.object({
+  name: joi.string().required(),
+  year: joi.string().required(),
+  description: joi.string().required(),
+  brand: joi.string().required(),
+  banner: joi.string().required(),
+  price: joi.number().required(),
+  kilometers: joi.string().required(),
+  userId: joi.string().required()
+});

@@ -1,7 +1,7 @@
 import { SingIn } from './sing-in';
 import { RequestValidator } from '../../../contracts/RequestValidator';
-import { SignInUseCase } from '../../../../modules/useCases/signIn/sign-in';
 import { InvalidRequestError } from '../../../../shared/infra/http/errors/invalid-request';
+import { SignInUseCase } from '../../../../modules/useCases/user/signIn/sign-in';
 
 const fakeUserDataAccess = {
   id: 'any_id',

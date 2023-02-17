@@ -1,9 +1,9 @@
 
 import { UserDTO } from './dtos';
 import { User } from '@prisma/client';
-import { PasswordEncrypter } from '../../contracts/PasswordEncrypter';
-import { ConflictError } from '../../../shared/infra/http/errors/conflict';
-import { IUsersRepository } from '../../../shared/infra/database/interfaces/IUserRepository';
+import { PasswordEncrypter } from '../../../contracts/PasswordEncrypter';
+import { ConflictError } from '../../../../shared/infra/http/errors/conflict';
+import { IUsersRepository } from '../../../../shared/infra/database/interfaces/IUserRepository';
 
 class SignUpUseCase {
   constructor(

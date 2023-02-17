@@ -1,10 +1,10 @@
 interface UserCredentialsDTO {
   username: string
   password: string
-  phone: string
 }
 
 export type UserAccessDataDTO = {
+  id: string
   username: string
   token: string
 };

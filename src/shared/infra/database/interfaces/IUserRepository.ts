@@ -1,5 +1,5 @@
 import { User } from '@prisma/client';
-import { UserDTO } from '../../../../modules/useCases/signUp/dtos';
+import { UserDTO } from '../../../../modules/useCases/user/signUp/dtos';
 
 interface IUsersRepository {
   create: (data: UserDTO) => Promise<User>

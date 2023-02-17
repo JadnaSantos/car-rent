@@ -1,7 +1,7 @@
 import { Controller } from '../../../contracts/Controller';
 import { HttpRequest, HttpResponse } from '../../../contracts/Http';
 import { RequestValidator } from '../../../contracts/RequestValidator';
-import { SignUpUseCase } from '../../../../modules/useCases/signUp/sign-up';
+import { SignUpUseCase } from '../../../../modules/useCases/user/signUp/sign-up';
 import { InvalidRequestError } from '../../../../shared/infra/http/errors/invalid-request';
 
 class SingUp implements Controller {

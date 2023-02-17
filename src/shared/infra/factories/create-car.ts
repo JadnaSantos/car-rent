@@ -1,4 +1,3 @@
-import { Controller } from '../../../presentation/contracts/Controller';
 import { CarsRepository } from '../database/repositories/cars-respository';
 import { CreateCarUseCase } from '../../../modules/useCases/car/createCar/create-car';
 import { HandleControllerErrorsDecorator } from '../decorators/HandleControllerErrorsDecorator';
@@ -6,7 +5,7 @@ import { CreateCarController } from '../../../presentation/controllers/car/creat
 import { carCredentialsShema } from '../http/joi/validations/schemas';
 import { JoiRequestValidator } from '../http/joi/validations/JoiRequestValidator';
 
-export function makeCreateCarController(): Controller {
+export function makeCreateCarController() {
   const carsRepository = new CarsRepository();
   const createCarsUseCase = new CreateCarUseCase(
     carsRepository

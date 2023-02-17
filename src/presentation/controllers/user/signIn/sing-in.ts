@@ -2,7 +2,7 @@ import { Controller } from '../../../contracts/Controller';
 import { HttpRequest, HttpResponse } from '../../../contracts/Http';
 import { InvalidRequestError } from '../../../../shared/infra/http/errors/invalid-request';
 import { RequestValidator } from '../../../contracts/RequestValidator';
-import { SignInUseCase } from '../../../../modules/useCases/signIn/sign-in';
+import { SignInUseCase } from '../../../../modules/useCases/user/signIn/sign-in';
 
 class SingIn implements Controller {
   constructor(

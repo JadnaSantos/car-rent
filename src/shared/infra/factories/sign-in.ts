@@ -7,7 +7,7 @@ import { userCredentialsSigInSchema } from '../http/joi/validations/schemas';
 import { SingIn } from '../../../presentation/controllers/user/signIn/sing-in';
 import { UsersRepository } from '../database/repositories/users-repository';
 import { JwtTokenGenerator } from '../http/jwt/JwtTokenGenerator';
-import { SignInUseCase } from '../../../modules/useCases/signIn/sign-in';
+import { SignInUseCase } from '../../../modules/useCases/user/signIn/sign-in';
 
 
 export function makeSignInController(): Controller {

@@ -1,9 +1,10 @@
 
+import { IUsersRepository } from '../../../../shared/infra/database/interfaces/IUserRepository';
+import { NotFoundError } from '../../../../shared/infra/http/errors/not-found';
+import { PasswordCompare } from '../../../contracts/PasswordCompare';
+import { TokenGenerator } from '../../../contracts/TokenGenerator';
 import { UserAccessDataDTO, UserCredentialsDTO } from './dtos';
-import { TokenGenerator } from '../../contracts/TokenGenerator';
-import { PasswordCompare } from '../../contracts/PasswordCompare';
-import { NotFoundError } from '../../../shared/infra/http/errors/not-found';
-import { IUsersRepository } from '../../../shared/infra/database/interfaces/IUserRepository';
+
 
 class SignInUseCase {
   constructor(
@@ -29,8 +30,7 @@ class SignInUseCase {
       username: user.username,
     });
 
-
-    return { username: user.username, token };
+    return { id: user.id, username: user.username, token };
   }
 }
 

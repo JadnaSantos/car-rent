@@ -1,10 +1,10 @@
-import jwt from 'jsonwebtoken';
 import 'dotenv/config';
+import jwt from 'jsonwebtoken';
 import { Payload, TokenGenerator } from '../../../../modules/contracts/TokenGenerator';
 
 export class JwtTokenGenerator implements TokenGenerator {
   private readonly config: jwt.SignOptions;
-  private readonly jwtSecret = '10a6d97cff0c4d0ebdc458d1d74d4524';
+  private readonly jwtSecret = 'cc8d283061c365329579fa4ace208d80';
   private readonly jwt: typeof jwt;
 
   constructor() {

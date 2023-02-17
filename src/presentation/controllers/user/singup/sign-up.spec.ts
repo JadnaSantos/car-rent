@@ -1,4 +1,4 @@
-import { SignUpUseCase } from '../../../../modules/useCases/signUp/sign-up';
+import { SignUpUseCase } from '../../../../modules/useCases/user/signUp/sign-up';
 import { InvalidRequestError } from '../../../../shared/infra/http/errors/invalid-request';
 import { RequestValidator } from '../../../contracts/RequestValidator';
 import { SingUp } from './sign-up';

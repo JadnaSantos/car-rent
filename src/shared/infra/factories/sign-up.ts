@@ -1,4 +1,4 @@
-import { SignUpUseCase } from '../../../modules/useCases/signUp/sign-up';
+import { SignUpUseCase } from '../../../modules/useCases/user/signUp/sign-up';
 import { Controller } from '../../../presentation/contracts/Controller';
 import { SingUp } from '../../../presentation/controllers/user/singup/sign-up';
 import { BcryptPassowrdManager } from '../bcrypt/BcryptPasswordManager';

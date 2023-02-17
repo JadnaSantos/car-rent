@@ -1,8 +1,8 @@
 
 import { SignUpUseCase } from './sign-up';
-import { PasswordEncrypter } from '../../contracts/PasswordEncrypter';
-import { ConflictError } from '../../../shared/infra/http/errors/conflict';
-import { IUsersRepository } from '../../../shared/infra/database/interfaces/IUserRepository';
+import { PasswordEncrypter } from '../../../contracts/PasswordEncrypter';
+import { ConflictError } from '../../../../shared/infra/http/errors/conflict';
+import { IUsersRepository } from '../../../../shared/infra/database/interfaces/IUserRepository';
 
 interface SutTypes {
   sut: SignUpUseCase

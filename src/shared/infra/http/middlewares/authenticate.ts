@@ -2,31 +2,34 @@ import { verify } from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import 'dotenv/config';
 
-const SECRET = '10a6d97cff0c4d0ebdc458d1d74d4524';
+// const SECRET = 'dsadasd';
 
 type Payload = {
-  id: string
+  id: string;
   username: string
 };
 
 
 const authenticate = async (
-  req: Request,
-  res: Response,
+  request: Request,
+  response: Response,
   next: NextFunction
-) => {
-  const token = req.headers.authorization;
+): Promise<Response | undefined> => {
+  const authHeader = request.headers.authorization;
 
-  if (!token) return res.status(401).json({ message: 'Token not found' });
+  if (!authHeader) return response.status(401).json({ message: 'Token not found' });
+
+
+  const [, token] = authHeader.split(' ');
 
   try {
-    const { data } = verify(token, SECRET) as { data: Payload };
+    const { data } = verify(token, 'cc8d283061c365329579fa4ace208d80') as { data: Payload };
 
-    req.user = data;
+    request.user = data;
 
-    return next();
+    next();
   } catch (err) {
-    return res.status(401).json({ message: 'Token invalid' });
+    return response.status(401).json({ message: 'Token invalid' });
   }
 };
 
