@@ -1,7 +1,6 @@
 import { Prisma } from '@prisma/client';
 import { CarsDTO } from '../../../../modules/useCases/car/dtos';
 import { ListCarsUseCase } from '../../../../modules/useCases/car/listCars/list-cars';
-import { HttpRequest } from '../../../contracts/Http';
 import { ListCarsController } from './list-car-controller';
 
 interface SutTypes {

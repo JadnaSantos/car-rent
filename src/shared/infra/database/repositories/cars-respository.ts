@@ -85,6 +85,27 @@ class CarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  async getCarById(id: string): Promise<Car | null> {
+    const car = await prisma.car.findUnique({
+      where: {
+        id
+      },
+      select: {
+        id: true,
+        name: true,
+        year: true,
+        description: true,
+        brand: true,
+        banner: true,
+        price: true,
+        kilometers: true,
+        userId: true
+      }
+    });
+
+    return car;
+  }
 }
 
 export { CarsRepository };

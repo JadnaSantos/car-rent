@@ -6,6 +6,7 @@ interface ICarsRepository {
   listCars: () => Promise<Car[]>
   deleteCar: (id: string) => Promise<Car>
   updateCar: (data: CarsDTO) => Promise<Car>
+  getCarById: (id: string) => Promise<Car | null>
 }
 
 export { ICarsRepository };

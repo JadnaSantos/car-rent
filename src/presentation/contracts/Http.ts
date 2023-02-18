@@ -6,7 +6,7 @@ export type RequestUser = {
 interface HttpRequest {
   body: any
   params?: any
-  file: any;
+  file?: any;
   user?: RequestUser
 }
 
