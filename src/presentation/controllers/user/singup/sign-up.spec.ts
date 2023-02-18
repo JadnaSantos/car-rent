@@ -13,9 +13,10 @@ const fakeResponse = {
 
 const fakeRequest = {
   body: {
+    id: 'any_id',
     username: 'any_username',
-    password: 'any_password'
-  }
+  },
+  file: 'any_file'
 };
 
 type SutTypes = {

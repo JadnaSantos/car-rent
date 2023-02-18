@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { app } from '../config/app';
 import { Payload } from '../../../../modules/contracts/TokenGenerator';
 
-const SECRET = 'dsadasd';
+const SECRET = 'cc8d283061c365329579fa4ace208d80';
 
 const payload: Payload = {
   id: '1',

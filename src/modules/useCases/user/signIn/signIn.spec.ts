@@ -106,6 +106,7 @@ describe('SignIn User', () => {
     const userData = await sut.execute(fakeRequest);
 
     expect(userData).toEqual({
+      id: fakeUserResponse.id,
       username: fakeUserResponse.username,
       token: 'any_token'
     });

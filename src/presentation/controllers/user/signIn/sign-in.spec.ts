@@ -11,9 +11,10 @@ const fakeUserDataAccess = {
 
 const fakeRequest = {
   body: {
-    username: 'any_username',
-    password: 'any_password'
-  }
+    id: 'any_id',
+    user: 'any_username',
+  },
+  file: 'any_file'
 };
 
 type SutTypes = {
