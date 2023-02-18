@@ -42,7 +42,7 @@ const makeSut = (): SutTypes => {
   return { sut, carRepositorySub };
 };
 
-describe('Create Car', () => {
+describe('Create Car use case', () => {
   it('should return the created car', async () => {
     const { sut } = makeSut();
 

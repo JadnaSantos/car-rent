@@ -4,8 +4,9 @@ import { HandleControllerErrorsDecorator } from '../decorators/HandleControllerE
 import { CreateCarController } from '../../../presentation/controllers/car/createCar/create-controller-car';
 import { carCredentialsShema } from '../http/joi/validations/schemas';
 import { JoiRequestValidator } from '../http/joi/validations/JoiRequestValidator';
+import { Controller } from '../../../presentation/contracts/Controller';
 
-export function makeCreateCarController() {
+export function makeCreateCarController(): Controller {
   const carsRepository = new CarsRepository();
   const createCarsUseCase = new CreateCarUseCase(
     carsRepository

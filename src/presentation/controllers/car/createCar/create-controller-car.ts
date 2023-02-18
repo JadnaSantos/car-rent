@@ -2,9 +2,10 @@ import { RequestValidator } from '../../../contracts/RequestValidator';
 import { CreateCarUseCase } from '../../../../modules/useCases/car/createCar/create-car';
 import { InvalidRequestError } from '../../../../shared/infra/http/errors/invalid-request';
 import { HttpRequest, HttpResponse, RequestUser } from '../../../contracts/Http';
+import { Controller } from '../../../contracts/Controller';
 
 
-class CreateCarController {
+class CreateCarController implements Controller {
   constructor(
     private readonly createCar: CreateCarUseCase,
     private readonly requestValidator: RequestValidator
