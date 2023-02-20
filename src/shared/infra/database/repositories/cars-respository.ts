@@ -27,16 +27,13 @@ class CarsRepository implements ICarsRepository {
 
   async listCars(): Promise<Car[]> {
     const cars = await prisma.car.findMany({
-      select: {
-        id: true,
-        name: true,
-        year: true,
-        description: true,
-        brand: true,
-        banner: true,
-        price: true,
-        kilometers: true,
-        userId: true
+      include: {
+        user: {
+          select: {
+            username: true,
+            phone: true,
+          }
+        }
       }
     });
 
