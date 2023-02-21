@@ -4,3 +4,5 @@ node_modules
 lib-cov
 coverage
 *.lcov
+
+.uploads

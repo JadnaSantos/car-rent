@@ -1,8 +1,6 @@
 import { UpdateCarsUseCase } from '../../../../modules/useCases/car/updateCar/update-car';
 import { Controller } from '../../../contracts/Controller';
 import { HttpRequest, HttpResponse, RequestUser } from '../../../contracts/Http';
-import { RequestValidator } from '../../../contracts/RequestValidator';
-import { InvalidRequestError } from '../../../../shared/infra/http/errors/invalid-request';
 
 export class UpdateCarController implements Controller {
   constructor(
