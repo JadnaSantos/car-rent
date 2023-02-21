@@ -35,7 +35,9 @@ class CreateCarController implements Controller {
         price: request.body.price,
         brand: request.body.brand,
         userId: id,
-        year: request.body.year
+        year: request.body.year,
+        status: request.body.status,
+        draft: request.body.draft
       });
     }
 

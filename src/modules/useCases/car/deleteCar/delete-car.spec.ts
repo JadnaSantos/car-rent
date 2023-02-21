@@ -29,7 +29,8 @@ const makeSut = (): SutTypes => {
     listCars: jest.fn().mockResolvedValue(null),
     create: jest.fn().mockResolvedValue(null),
     deleteCar: jest.fn().mockResolvedValue(fakeCarsReponse),
-    sendUpdateCar: jest.fn().mockResolvedValue(null),
+    updateCar: jest.fn().mockResolvedValue(null),
+    finishCar: jest.fn().mockResolvedValue(null)
   };
 
   const sut = new DeleteCarUseCase(deleteCarRepositorySub);
