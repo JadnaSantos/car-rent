@@ -1,6 +1,6 @@
 import multer from 'multer';
 import { Router } from 'express';
-import { createCarRouter, listCarRouter, detailsRouter, deleteCarRouter } from './car/car.routes';
+import { createCarRouter, listCarRouter, detailsRouter, deleteCarRouter, updateCarRouter, finishCarRouter } from './car/car.routes';
 import uploadConfig from '.././../../../config/multer';
 import { usersRouterSignIn, usersRouterSignUp } from './user/user.routes';
 
@@ -14,6 +14,8 @@ routes.use('/cars', upload.single('file'), createCarRouter);
 routes.use('/list-cars', listCarRouter);
 routes.use('/cars', detailsRouter);
 routes.use('/car', deleteCarRouter);
+routes.use('/update-car', updateCarRouter);
+routes.use('/car-finish', finishCarRouter);
 
 
 export { routes };

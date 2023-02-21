@@ -25,7 +25,9 @@ const fakeRequest: CarsDTO = {
   kilometers: 'any_kilometers',
   price: new Prisma.Decimal(1000),
   userId: 'user_id',
-  year: '2020-19-05'
+  year: '2020-19-05',
+  status: false,
+  draft: true
 };
 
 
@@ -36,6 +38,8 @@ const makeSut = (): SutTypes => {
     listCars: jest.fn().mockResolvedValue(null),
     updateCar: jest.fn().mockResolvedValue(null),
     getCarById: jest.fn().mockResolvedValue(null),
+    finishCar: jest.fn().mockResolvedValue(null)
+
   };
 
   const sut = new CreateCarUseCase(carRepositorySub);
@@ -57,7 +61,9 @@ describe('Create Car use case', () => {
       kilometers: fakeRequest.kilometers,
       price: fakeRequest.price,
       userId: fakeRequest.userId,
-      year: fakeRequest.year
+      year: fakeRequest.year,
+      status: fakeRequest.status,
+      draft: fakeRequest.draft
     });
   });
 });

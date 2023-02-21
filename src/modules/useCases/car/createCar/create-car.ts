@@ -15,6 +15,8 @@ class CreateCarUseCase {
     price,
     kilometers,
     userId,
+    draft,
+    status
   }: CarsDTO) {
 
     const car = await this.carsRepository.create({
@@ -26,6 +28,8 @@ class CreateCarUseCase {
       price,
       kilometers,
       userId,
+      draft,
+      status
     });
 
     return car;

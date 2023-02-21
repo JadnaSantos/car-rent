@@ -9,7 +9,13 @@ interface CarsDTO {
   banner: string;
   price: Decimal;
   kilometers: string;
+  status: boolean;
+  draft: boolean;
   userId: string;
 }
 
-export { CarsDTO };
+interface UpdateCar {
+  id: string;
+}
+
+export { CarsDTO, UpdateCar };

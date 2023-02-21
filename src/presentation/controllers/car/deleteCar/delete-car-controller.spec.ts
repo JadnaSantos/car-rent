@@ -17,7 +17,9 @@ const fakeCarsReponse = {
   banner: '1676688033507-car-porsche.jpg',
   price: new Prisma.Decimal(1000),
   kilometers: '100',
-  userId: '1'
+  userId: '1',
+  status: false,
+  draft: true
 };
 
 const makeSut = (): SutTypes => {

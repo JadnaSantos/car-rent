@@ -35,7 +35,9 @@ describe('CreateCar Controller test ', () => {
       kilometers: 'any_kilometers',
       price: new Prisma.Decimal(1000),
       userId: 'user_id',
-      year: '2020-19-05'
+      year: '2020-19-05',
+      status: false,
+      draft: true
     },
     user: { id: 'user_id', username: 'any_username' },
     file: '000000000'
@@ -79,7 +81,9 @@ describe('CreateCar Controller test ', () => {
         kilometers: 'any_kilometers',
         price: new Prisma.Decimal(1000),
         userId: 'user_id',
-        year: '2020-19-05'
+        year: '2020-19-05',
+        status: false,
+        draft: true
       },
       user: { id: '1', username: 'any_username' },
       file: '000000000'
@@ -103,7 +107,9 @@ describe('CreateCar Controller test ', () => {
       kilometers: httpRequest.body.kilometers,
       price: httpRequest.body.price,
       userId: httpRequest.user?.id,
-      year: httpRequest.body.year
+      year: httpRequest.body.year,
+      status: httpRequest.body.status,
+      draft: httpRequest.body.draft,
     });
   });
 });

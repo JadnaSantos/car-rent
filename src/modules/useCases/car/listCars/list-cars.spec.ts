@@ -18,7 +18,9 @@ const fakeCarsReponse: CarsDTO[] = [
     banner: '1676688033507-car-porsche.jpg',
     price: new Prisma.Decimal(1000),
     kilometers: '100',
-    userId: '1'
+    userId: '1',
+    status: false,
+    draft: true
   },
   {
     id: '02',
@@ -29,7 +31,9 @@ const fakeCarsReponse: CarsDTO[] = [
     banner: '1676688033507-car-porsche.jpg',
     price: new Prisma.Decimal(1000),
     kilometers: '100',
-    userId: '2'
+    userId: '2',
+    status: false,
+    draft: true
   },
 ];
 
@@ -40,6 +44,7 @@ const makeSut = (): SutTypes => {
     deleteCar: jest.fn().mockResolvedValue(null),
     updateCar: jest.fn().mockResolvedValue(null),
     getCarById: jest.fn().mockResolvedValue(null),
+    finishCar: jest.fn().mockResolvedValue(null)
   };
 
   const sut = new ListCarsUseCase(carRepositorySub);

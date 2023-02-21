@@ -1,7 +1,6 @@
 import { Prisma } from '@prisma/client';
 import { CarsRepository } from '../../../../shared/infra/database/repositories/cars-respository';
 import { NotFoundError } from '../../../../shared/infra/http/errors/not-found';
-import { CarsDTO } from '../dtos';
 import { DeleteCarUseCase } from './delete-car';
 
 interface SutTypes {
@@ -18,7 +17,9 @@ const fakeCarsReponse = {
   banner: '1676688033507-car-porsche.jpg',
   price: new Prisma.Decimal(1000),
   kilometers: '100',
-  userId: '1'
+  userId: '1',
+  status: false,
+  draft: true
 };
 
 
@@ -28,7 +29,7 @@ const makeSut = (): SutTypes => {
     listCars: jest.fn().mockResolvedValue(null),
     create: jest.fn().mockResolvedValue(null),
     deleteCar: jest.fn().mockResolvedValue(fakeCarsReponse),
-    updateCar: jest.fn().mockResolvedValue(null),
+    sendUpdateCar: jest.fn().mockResolvedValue(null),
   };
 
   const sut = new DeleteCarUseCase(deleteCarRepositorySub);

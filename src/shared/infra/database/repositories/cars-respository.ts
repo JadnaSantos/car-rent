@@ -27,6 +27,10 @@ class CarsRepository implements ICarsRepository {
 
   async listCars(): Promise<Car[]> {
     const cars = await prisma.car.findMany({
+      where: {
+        draft: false,
+        status: false,
+      },
       include: {
         user: {
           select: {
@@ -48,35 +52,26 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  async updateCar(data: CarsDTO): Promise<Car> {
-    const {
-      id,
-      name,
-      year,
-      description,
-      brand,
-      banner,
-      price,
-      kilometers,
-      userId
-    } = data;
-
+  async updateCar(id: string, user: string): Promise<Car> {
     const car = await prisma.car.update({
       where: {
-        id: id
+        id
       },
       data: {
-        name,
-        year,
-        description,
-        brand,
-        banner,
-        price,
-        kilometers,
-        userId
+        draft: false
       },
-      include: {
-        user: true,
+    });
+
+    return car;
+  }
+
+  async finishCar(id: string, user: string): Promise<Car> {
+    const car = await prisma.car.update({
+      where: {
+        id
+      },
+      data: {
+        status: true
       }
     });
 
@@ -96,6 +91,8 @@ class CarsRepository implements ICarsRepository {
         brand: true,
         banner: true,
         price: true,
+        draft: true,
+        status: true,
         kilometers: true,
         userId: true
       }
