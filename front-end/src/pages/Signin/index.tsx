@@ -37,11 +37,11 @@ function Signin() {
         username, password
       });
 
-      navigate('/home');
-
       console.log(username, password);
 
       reset();
+
+      navigate('/home');
     } catch (err) {
       toast.error('Ocorreu um erro insperado, por favor, tente mais tarde');
     } finally {

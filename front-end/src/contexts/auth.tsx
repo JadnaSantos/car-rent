@@ -21,6 +21,7 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 export const AuthProvider = ({ children }: AuthContextProviderProps) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@CarSales:token');
+    console.log(token);
     const user = localStorage.getItem('@CarSales:user');
 
     if (token && user) {
@@ -37,7 +38,6 @@ export const AuthProvider = ({ children }: AuthContextProviderProps) => {
       const response = await api.post('/signin', {
         username, password
       });
-      console.log('response', response);
 
       const { token, user } = response.data;
 
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }: AuthContextProviderProps) => {
 
       setData({ token, user });
 
-      toast.success('Logado com sucess');
+      toast.success('Logado com sucesso');
     } catch (error) {
       console.log(error);
       toast.error('Erro ao acessar, usuario ou senha incorreta');
