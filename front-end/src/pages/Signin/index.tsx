@@ -52,48 +52,50 @@ function Signin() {
   return (
     <S.Container>
       <S.Content>
-        <img src={logo} alt='logo' />
+        <S.AnimationContainer>
+          <form onSubmit={handleSubmit(handleLogin)}>
+            <h4>Faça seu login</h4>
+
+            <Input
+              icon={Envelope}
+              placeholder='E-mail'
+              type='username'
+              required
+              {...register('username')}
+              {...inputRef}
+            />
+
+            <Input
+              icon={Lock}
+              type='password'
+              autocomplete="on"
+              placeholder='Senha'
+              {...register('password')}
+              {...inputRef}
+            />
+            {/* {errors.password?.message && <p>{errors.password.message}</p>} */}
+
+            <Button
+              type='submit'
+              loading={loading}
+            >
+              Entrar
+            </Button>
 
 
-        <form onSubmit={handleSubmit(handleLogin)}>
-          <h4>Faça seu login</h4>
+            <a href='forgot'>Esqueci minha senha</a>
 
-          <Input
-            icon={Envelope}
-            placeholder='E-mail'
-            type='username'
-            required
-            {...register('username')}
-            {...inputRef}
-          />
+          </form>
 
-          <Input
-            icon={Lock}
-            type='password'
-            autocomplete="on"
-            placeholder='Senha'
-            {...register('password')}
-            {...inputRef}
-          />
-          {/* {errors.password?.message && <p>{errors.password.message}</p>} */}
+          <Link to='/sing-up'>
+            <Login size={12} />
+            Criar Conta
+          </Link>
+        </S.AnimationContainer>
 
-          <Button
-            type='submit'
-            loading={loading}
-          >
-            Entrar
-          </Button>
-
-
-          <a href='forgot'>Esqueci minha senha</a>
-
-        </form>
-
-        <Link to='/sing-up'>
-          <Login size={12} />
-          Criar Conta
-        </Link>
       </S.Content>
+
+      <S.Background />
     </S.Container>
   );
 }
