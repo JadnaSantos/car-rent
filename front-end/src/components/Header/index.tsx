@@ -1,50 +1,71 @@
-import React, { useContext } from 'react';
-import {
-  Container,
-  Content,
-  HeaderItem,
-  HeaderItems
-} from './styles';
-import logo from '../../assets/logo.svg';
-import { SignOut } from 'phosphor-react';
+import React, { useState } from 'react';
+import logo from '../../assets/car.svg';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth';
+import { useAuth } from '../../hook/useAuth';
+import * as S from './styles';
+import { List, X, SignOut } from 'phosphor-react';
+import { Button } from '../Button';
 
-export const Header = () => {
+
+function Header() {
+  const { singOut } = useAuth();
   const navigate = useNavigate();
-  const { singOut } = useContext(AuthContext);
 
-  function handleLogoClick() {
-    navigate('/home');
-  }
+  const [open, setOpen] = useState(false);
 
-  function handleExploreStoreClick() {
-    navigate('/explorer-map');
-  }
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
-  function handleDetailsStoreClick() {
-    navigate('/register');
-  }
+  const handleClickLogo = () => {
+    navigate('/');
+  };
+
+  const handleClickSkills = () => {
+    navigate('/rent');
+  };
+
+  const handleClickProjects = () => {
+    navigate('/service');
+  };
+
+  const handleClickContact = () => {
+    navigate('/contact');
+  };
 
   return (
-    <Container>
-      <Content onClick={handleLogoClick} title="Home">
-        <img data-testid="logo" src={logo} alt="logo" />
-      </Content>
+    <S.Container>
+      <S.Content onClick={handleClickLogo}>
+        <img src={logo} alt='logo car' />
+      </S.Content>
 
-      <HeaderItems>
-        <HeaderItem onClick={handleExploreStoreClick}>Explorar</HeaderItem>
-        <HeaderItem onClick={handleDetailsStoreClick}>Cadastrar</HeaderItem>
 
-        <HeaderItem onClick={singOut}>
-          <SignOut
-            color='#322153'
-            size={24}
-          />
-        </HeaderItem>
+      <S.MobileIcon onClick={handleOpen}>
+        {open ? (
+          <X size={24} weight="bold" />
+        ) : (
+          <List size={24} weight="bold" />
+        )}
+      </S.MobileIcon>
 
-      </HeaderItems>
+      <S.HeaderItem onClick={handleOpen} click={open}>
+        <S.HeaderItems onClick={handleClickProjects}>Rent</S.HeaderItems>
+        <S.HeaderItems onClick={handleClickSkills}>Service</S.HeaderItems>
+        <S.HeaderItems onClick={handleClickContact}>Contact</S.HeaderItems>
 
-    </Container>
+        <S.AcessHeader>
+          <Button>Login</Button>
+          <Button>Signup</Button>
+        </S.AcessHeader>
+
+      </S.HeaderItem>
+
+
+
+
+    </S.Container>
   );
-};
+}
+
+
+export { Header };

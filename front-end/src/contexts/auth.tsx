@@ -21,7 +21,6 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 export const AuthProvider = ({ children }: AuthContextProviderProps) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@CarSales:token');
-    console.log(token);
     const user = localStorage.getItem('@CarSales:user');
 
     if (token && user) {

@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+interface Click {
+  readonly click: boolean;
+}
+
+
 export const Container = styled.header`
   padding: 1rem 0;
   position: sticky;
@@ -19,6 +24,7 @@ export const Container = styled.header`
     justify-content: center;
   }
 
+
 `;
 
 export const Content = styled.div`
@@ -27,17 +33,9 @@ export const Content = styled.div`
   justify-content: space-between;
 
   gap: 0.75rem;
-
-  img{
-    width: 50%;
-  }
-
   img {
-    &:hover {
-      cursor: pointer;
-    }
+    width: 10%;
   }
-
 
   @media (max-width: 769px) {
     img {
@@ -50,20 +48,47 @@ export const Content = styled.div`
       width: 100%;
     }
   }
+
+  @media (max-width: 998px) {
+    img {
+      display: none;
+    }
+  }
 `;
 
-export const HeaderItems = styled.div`
+
+export const MobileIcon = styled.div`
+  display: none;
+
+
+  @media (max-width: 994px) {
+    display: block;
+    position: absolute;
+    top: 3.2rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+`;
+
+export const HeaderItem = styled.div<Click>`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    justify-content: space-evenly;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 994px) {
+    height: 100vh;
+    width: 83vw;
+    background: ${({ theme }) => theme.colors?.background};
+    z-index: 999;
+    display: ${({ click }) => (click ? 'block' : 'none')};
+    opacity: 0.95;
   }
 `;
 
-export const HeaderItem = styled.div`
+export const HeaderItems = styled.div`
   font-weight: 600;
   font-size: 1rem;
   display: flex;
@@ -73,15 +98,35 @@ export const HeaderItem = styled.div`
   &:nth-child(2),
   &:nth-child(3) {
     margin-right: 40px;
-
-    @media (max-width: 768px) {
-      margin-right: 0;
-    }
   }
 
   &:hover {
     cursor: pointer;
   }
 
+  @media (max-width: 768px) {
+    margin-top: 4rem;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 13rem;
+  }
 `;
 
+export const AcessHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  button {
+    padding: 1rem 2rem 1rem;
+    margin-top: 0rem;
+  }
+
+  @media (max-width: 768px) {
+    display: grid;
+
+    gap: 2rem;
+
+    margin-top: 4rem;
+  }
+`;
