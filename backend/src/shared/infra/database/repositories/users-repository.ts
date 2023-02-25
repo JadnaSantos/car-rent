@@ -1,6 +1,6 @@
-import { IUsersRepository } from '../interfaces/IUserRepository';
-import { prisma } from '../prisma/config';
 import { User } from '@prisma/client';
+import { prisma } from '../prisma/config';
+import { IUsersRepository } from '../interfaces/IUserRepository';
 import { UserDTO } from '../../../../modules/useCases/user/signUp/dtos';
 
 class UsersRepository implements IUsersRepository {
@@ -19,7 +19,6 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
-
   async findByUsername(username: string): Promise<User | null> {
     const user = await prisma.user.findUnique({
       where: {
@@ -34,6 +33,16 @@ class UsersRepository implements IUsersRepository {
     const user = await prisma.user.findUnique({
       where: {
         phone
+      }
+    });
+
+    return user;
+  }
+
+  async findById(id: string): Promise<User | null> {
+    const user = await prisma.user.findUnique({
+      where: {
+        id: id
       }
     });
 
