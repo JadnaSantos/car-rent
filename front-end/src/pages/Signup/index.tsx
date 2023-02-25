@@ -1,10 +1,10 @@
+import * as S from './styles';
+import logo from '../../assets/car.svg';
+import { toast } from 'react-toastify';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { useAuth } from '../../hook/useAuth';
-import * as S from './styles';
-import logo from '../../assets/car.svg';
 import { ArrowLeft, Envelope, Lock, Phone } from 'phosphor-react';
 
 
@@ -46,52 +46,54 @@ function Signup() {
   return (
     <S.Container>
       <S.Content>
-        <img src={logo} alt='logo' />
+        <S.AnimationContainer>
+          <form onSubmit={handleSubmit(handleSignup)}>
+            <h4>Faça seu login</h4>
+
+            <Input
+              icon={Envelope}
+              placeholder='E-mail'
+              type='username'
+              required
+              {...register('username')}
+            />
+
+            <Input
+              icon={Lock}
+              type='password'
+              autocomplete="on"
+              placeholder='Senha'
+              {...register('password')}
+            />
 
 
-        <form onSubmit={handleSubmit(handleSignup)}>
-          <h4>Faça seu login</h4>
+            <Input
+              icon={Phone}
+              type='number'
+              placeholder='número de telefone'
+              {...register('phone')}
+            />
 
-          <Input
-            icon={Envelope}
-            placeholder='E-mail'
-            type='username'
-            required
-            {...register('username')}
-          />
-
-          <Input
-            icon={Lock}
-            type='password'
-            autocomplete="on"
-            placeholder='Senha'
-            {...register('password')}
-          />
+            <Button
+              type='submit'
+            >
+              Cadastrar
+            </Button>
 
 
-          <Input
-            icon={Phone}
-            type='number'
-            placeholder='número de telefone'
-            {...register('phone')}
-          />
+            <a href='forgot'>Esqueci minha senha</a>
 
-          <Button
-            type='submit'
-          >
-            Cadastrar
-          </Button>
+          </form>
 
+          <Link to='/'>
+            <ArrowLeft size={12} />
+            Voltar para login
+          </Link>
 
-          <a href='forgot'>Esqueci minha senha</a>
-
-        </form>
-
-        <Link to='/'>
-          <ArrowLeft size={12} />
-          Voltar para login
-        </Link>
+        </S.AnimationContainer>
       </S.Content>
+
+      <S.Background />
     </S.Container>
   );
 }

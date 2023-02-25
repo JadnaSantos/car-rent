@@ -1,13 +1,12 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { createContext, ReactNode, useCallback, useState } from 'react';
-import { AuthState, SignInCredentials, SignUpCredentials } from '../types/types';
+import { AuthState, SignInCredentials, SignUpCredentials, User } from '../types/types';
 import { api } from '../infra/http/service/api';
 
-
 export interface AuthContextData {
-  user: object;
-  signIn: (credentials: SignInCredentials) => Promise<void>
+  username: User;
+  signIn(credentials: SignInCredentials): Promise<void>
   signup: (credentials: SignUpCredentials) => Promise<void>
   singOut(): void
 }
@@ -21,27 +20,28 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 export const AuthProvider = ({ children }: AuthContextProviderProps) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@CarSales:token');
-    const user = localStorage.getItem('@CarSales:user');
+    const username = localStorage.getItem('@CarSales:username');
 
-    if (token && user) {
+    if (token && username) {
       api.defaults.headers.authorization = `Bearer ${token}`;
 
-      return { token, user: JSON.parse(user) };
+      return { token, user: JSON.parse(username) };
     }
 
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ password, username }: SignInCredentials) => {
+  const signIn = useCallback(async ({ username, password }: SignInCredentials) => {
     try {
       const response = await api.post('/signin', {
         username, password
       });
 
-      const { token, user } = response.data;
+      const token = response.data.token;
+      const user = response.data.username;
 
       localStorage.setItem('@CarSales:token', token);
-      localStorage.setItem('@CarSales:user', JSON.stringify(user));
+      localStorage.setItem('@CarSales:username', JSON.stringify(user));
 
       setData({ token, user });
 
@@ -51,6 +51,9 @@ export const AuthProvider = ({ children }: AuthContextProviderProps) => {
       toast.error('Erro ao acessar, usuario ou senha incorreta');
     }
   }, []);
+
+  // B2345678
+  //jadna.silva@yahoo.com
 
   const signup = useCallback(async ({ username, password, phone }: SignUpCredentials) => {
     try {
@@ -81,7 +84,7 @@ export const AuthProvider = ({ children }: AuthContextProviderProps) => {
 
   return (
     <AuthContext.Provider value={{
-      user: data.user,
+      username: data.user,
       signIn,
       signup,
       singOut

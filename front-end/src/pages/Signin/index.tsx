@@ -25,7 +25,7 @@ function Signin() {
     resolver: zodResolver(FormValidationSchema)
   });
 
-  const { handleSubmit, register, reset, formState: { errors } } = FormValidation;
+  const { handleSubmit, register, reset } = FormValidation;
 
   async function handleLogin(data: SchemaFieldSignin) {
     try {
@@ -73,7 +73,6 @@ function Signin() {
               {...register('password')}
               {...inputRef}
             />
-            {/* {errors.password?.message && <p>{errors.password.message}</p>} */}
 
             <Button
               type='submit'

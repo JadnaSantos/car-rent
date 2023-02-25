@@ -8,8 +8,8 @@ function AppRouter() {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<Signin />} />
-        <Route path="/sing-up" element={<Signup />} /> */}
+        <Route path="/" element={<Signin />} />
+        <Route path="/sing-up" element={<Signup />} />
 
         <Route path="/" element={<DefaultLayout />}>
           <Route path="/home" element={<Home />} />
