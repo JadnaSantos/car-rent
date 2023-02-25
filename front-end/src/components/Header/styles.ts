@@ -23,8 +23,6 @@ export const Container = styled.header`
     align-items: center;
     justify-content: center;
   }
-
-
 `;
 
 export const Content = styled.div`

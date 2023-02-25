@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as S from './styles';
-import logo from '../../assets/car.svg';
-
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../hook/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
