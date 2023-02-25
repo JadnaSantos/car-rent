@@ -5,4 +5,5 @@ lib-cov
 coverage
 *.lcov
 
-.uploads
+uploads/*
+!uploads/.gitkeep
