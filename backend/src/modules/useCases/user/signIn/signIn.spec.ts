@@ -33,7 +33,8 @@ const makeSut = (): SutTypes => {
   const usersRepositoryStub: jest.Mocked<IUsersRepository> = {
     create: jest.fn().mockResolvedValue(null),
     findByUsername: jest.fn().mockResolvedValue(fakeUserResponse),
-    findByPhoneNumber: jest.fn().mockResolvedValue(null)
+    findByPhoneNumber: jest.fn().mockResolvedValue(null),
+    findById: jest.fn().mockResolvedValue(null)
   };
   const passwordCompareStub: jest.Mocked<PasswordCompare> = {
     compare: jest.fn().mockResolvedValue(true)

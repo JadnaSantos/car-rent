@@ -15,6 +15,7 @@ const fakeUser = {
   username: 'any_username',
   password: 'any_password',
   phone: '11942384716',
+  avatar: 'any_avatar.jpg',
   created_at: new Date(),
   updated_at: new Date(),
 };
@@ -23,6 +24,7 @@ const fakeRequest = {
   username: 'any_username',
   password: 'any_password',
   phone: '11942384716',
+  avatar: 'any_avatar.jpg',
   created_at: new Date(),
   updated_at: new Date(),
 };
@@ -31,7 +33,8 @@ const makeSut = (): SutTypes => {
   const usersRepositoryStub: jest.Mocked<IUsersRepository> = {
     create: jest.fn().mockResolvedValue(fakeUser),
     findByUsername: jest.fn().mockResolvedValue(null),
-    findByPhoneNumber: jest.fn().mockResolvedValue(null)
+    findByPhoneNumber: jest.fn().mockResolvedValue(null),
+    findById: jest.fn().mockResolvedValue(null)
   };
 
   const passwordEncrypterStub: jest.Mocked<PasswordEncrypter> = {
@@ -110,6 +113,7 @@ describe('SignUp User', () => {
       phone: fakeRequest.phone,
       created_at: fakeRequest.created_at,
       updated_at: fakeRequest.updated_at,
+      avatar: fakeRequest.avatar
     });
   });
 
