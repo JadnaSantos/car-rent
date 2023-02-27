@@ -1,6 +1,6 @@
-import { SignUpUseCase } from '../../../modules/useCases/user/signUp/sign-up';
+import { SignUpUseCase } from '../../../modules/useCases/user/sign-up/sign-up';
 import { Controller } from '../../../presentation/contracts/Controller';
-import { SingUp } from '../../../presentation/controllers/user/singup/sign-up';
+import { SingUp } from '../../../presentation/controllers/user/sing-up/sign-up';
 import { BcryptPassowrdManager } from '../bcrypt/BcryptPasswordManager';
 import { UsersRepository } from '../database/repositories/users-repository';
 import { HandleControllerErrorsDecorator } from '../decorators/HandleControllerErrorsDecorator';

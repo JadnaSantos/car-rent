@@ -1,12 +1,12 @@
 import { CarsRepository } from '../database/repositories/cars-respository';
 import { Controller } from '../../../presentation/contracts/Controller';
-import { FinishCarsUseCase } from '../../../modules/useCases/car/finishCar/finish-car';
 import { HandleControllerErrorsDecorator } from '../decorators/HandleControllerErrorsDecorator';
-import { FinishCarController } from '../../../presentation/controllers/car/finishCar/finish-controller-car';
+import { FinishCarController } from '../../../presentation/controllers/car/finish-car/finish-car-controller-car';
+import { FinishCarUseCase } from '../../../modules/useCases/car/finish-car/finish-car';
 
 export function makeFinishCarController(): Controller {
   const carsRepository = new CarsRepository();
-  const createCarsUseCase = new FinishCarsUseCase(
+  const createCarsUseCase = new FinishCarUseCase(
     carsRepository
   );
 

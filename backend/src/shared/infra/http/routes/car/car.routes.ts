@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { adaptRoute } from '../../config/adapter';
 import { authenticate } from '../../middlewares/authenticate';
-import { makeCreateCarController } from '../../../factories/create-car';
-import { makeListCarsController } from '../../../factories/list-cars';
-import { makeDetailsCarsController } from '../../../factories/details-car';
-import { makeDeleteCarController } from '../../../factories/delete-car';
+import { makeCreateCarController } from '../../../factories/new-car';
+import { makeListCarsController } from '../../../factories/car-list';
+import { makeDetailsCarsController } from '../../../factories/car-details';
+import { makeDeleteCarController } from '../../../factories/remove-car';
 import { makeUpdateCarController } from '../../../factories/update-car';
 import { makeFinishCarController } from '../../../factories/finish-car';
 

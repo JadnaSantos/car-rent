@@ -1,7 +1,7 @@
 import { User } from '@prisma/client';
 import { prisma } from '../prisma/config';
 import { IUsersRepository } from '../interfaces/IUserRepository';
-import { UserDTO } from '../../../../modules/useCases/user/signUp/dtos';
+import { UserDTO } from '../../../../modules/useCases/user/sign-up/dtos';
 
 class UsersRepository implements IUsersRepository {
 

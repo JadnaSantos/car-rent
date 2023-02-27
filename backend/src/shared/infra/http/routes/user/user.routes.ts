@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { adaptRoute } from '../../config/adapter';
 import { makeSignUpController } from '../../../factories/sign-up';
 import { makeSignInController } from '../../../factories/sign-in';
-import { makeProfilleController } from '../../../factories/profille';
+import { makeProfilleController } from '../../../factories/user-profile';
 import { authenticate } from '../../middlewares/authenticate';
 import { makeUserAvatarController } from '../../../factories/user-avatar';
 
