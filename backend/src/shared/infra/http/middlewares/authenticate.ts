@@ -9,7 +9,6 @@ type Payload = {
   username: string
 };
 
-
 const authenticate = async (
   request: Request,
   response: Response,

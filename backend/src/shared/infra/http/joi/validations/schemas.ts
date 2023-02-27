@@ -25,3 +25,7 @@ export const carCredentialsShema = joi.object({
   kilometers: joi.string().required(),
   userId: joi.string().required()
 });
+
+export const forgotPasswordShema = joi.object({
+  username: joi.string().min(3).email().required(),
+});

@@ -10,6 +10,7 @@ import {
   finishCarRouter
 } from './car/car.routes';
 import {
+  forgotPasswordRouter,
   userAvatarRouter,
   userProfilleRouter,
   usersRouterSignIn,
@@ -30,6 +31,7 @@ routes.use('/cars', detailsRouter);
 routes.use('/car', deleteCarRouter);
 routes.use('/update-car', updateCarRouter);
 routes.use('/car-finish', finishCarRouter);
+routes.use('/forgot', forgotPasswordRouter);
 
 
 export { routes };
