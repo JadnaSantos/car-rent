@@ -3,7 +3,7 @@ import { TokenGenerator } from '../../../contracts/TokenGenerator';
 import { NotFoundError } from '../../../../shared/infra/http/errors/not-found';
 import { IUsersRepository } from '../../../../shared/infra/database/interfaces/IUserRepository';
 import { EtherealMail } from '../../../../config/mail/EtherealMail';
-import { UserAccessDataDTO } from '../sign-in/dtos';
+import { UserAccessForgotPassword } from '../sign-in/dtos';
 
 class ForgotPasswordUseCase {
   constructor(
@@ -11,7 +11,7 @@ class ForgotPasswordUseCase {
     private readonly tokenGenerator: TokenGenerator,
   ) { }
 
-  async execute({ username }: UserAccessDataDTO): Promise<UserAccessDataDTO> {
+  async execute({ username }: UserAccessForgotPassword) {
     const user = await this.userRepository.findByUsername(username);
     console.log(user);
 

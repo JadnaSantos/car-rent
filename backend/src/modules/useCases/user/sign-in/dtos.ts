@@ -3,11 +3,15 @@ interface UserCredentialsDTO {
   password: string
 }
 
-export type UserAccessDataDTO = {
+interface UserAccessDataDTO {
   id: string
   username: string
   token: string
   password?: string
-};
+}
 
-export { UserCredentialsDTO };
+interface UserAccessForgotPassword {
+  username: string
+}
+
+export { UserCredentialsDTO, UserAccessDataDTO, UserAccessForgotPassword };

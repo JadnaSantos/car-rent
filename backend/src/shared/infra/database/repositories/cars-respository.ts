@@ -65,7 +65,7 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  async finishCar(id: string, user: string): Promise<Car> {
+  async finishCar(id: string): Promise<Car> {
     const car = await prisma.car.update({
       where: {
         id
