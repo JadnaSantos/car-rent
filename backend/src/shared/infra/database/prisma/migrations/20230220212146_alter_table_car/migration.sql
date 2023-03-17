@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "car" ADD COLUMN     "draft" BOOLEAN NOT NULL DEFAULT true,
+ADD COLUMN     "status" BOOLEAN NOT NULL DEFAULT false;
