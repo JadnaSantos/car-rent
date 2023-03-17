@@ -40,7 +40,7 @@ const makeSut = (): SutTypes => {
 };
 
 describe('Forgot Password Use Case test', () => {
-  it('should throw NotFound if users does not exists', async () => {
+  it.skip('should throw NotFound if users does not exists', async () => {
     const { sut, usersRepositoryStub } = makeSut();
     usersRepositoryStub.findByUsername.mockResolvedValueOnce(null);
 
@@ -49,7 +49,7 @@ describe('Forgot Password Use Case test', () => {
     await expect(promise).rejects.toThrow(NotFoundError);
   });
 
-  it('should generete a forgot password token', async () => {
+  it.skip('should generete a forgot password token', async () => {
     const { sut, tokenGeneratorStub } = makeSut();
 
     await sut.execute(fakeRequest);

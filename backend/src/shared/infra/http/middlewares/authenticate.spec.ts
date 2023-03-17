@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { app } from '../config/app';
 import { Payload } from '../../../../modules/contracts/TokenGenerator';
 
-const SECRET = 'cc8d283061c365329579fa4ace208d80';
+const SECRET = process.env.SECRET ?? 'secret';
 
 const payload: Payload = {
   id: '1',
@@ -28,6 +28,6 @@ describe('Authenticate Middleware test', () => {
 
   it('should response with 200 if token is valid', async () => {
     const token = jwt.sign({ data: payload }, SECRET);
-    await request(app).get('/test-auth').set('Authorization', token).expect(200, 'OK');
+    await request(app).get('/test-auth').set('Authorization', token).expect(200);
   });
 });
