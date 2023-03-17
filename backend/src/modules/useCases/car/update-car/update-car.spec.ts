@@ -62,7 +62,7 @@ describe('Finish Car use case', () => {
 
     const { sut, carRepositorySub } = makeSut();
 
-    await carRepositorySub.finishCar(fakeRequest.userId, fakeUser.id);
+    await carRepositorySub.finishCar(fakeRequest.userId);
 
     expect(sut.execute('03', '01')).rejects.toThrow(NotFoundError);
   });
