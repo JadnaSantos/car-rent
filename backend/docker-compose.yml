@@ -6,7 +6,5 @@ services:
     container_name: cars-sales
     ports:
       - 5432:5432
-    environment:
-      POSTGRES_USER: prisma
-      POSTGRES_PASSWORD: prismapassword
-      POSTGRES_DB: prisma
+    env_file:
+      - .env
