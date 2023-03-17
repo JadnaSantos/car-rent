@@ -80,8 +80,8 @@ describe('CreateCar Controller test ', () => {
         brand: 'any_brand',
         kilometers: 'any_kilometers',
         price: new Prisma.Decimal(1000),
+        years: '2020-19-05',
         userId: 'user_id',
-        year: '2020-19-05',
         status: false,
         draft: true
       },
