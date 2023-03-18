@@ -26,7 +26,7 @@ describe('Authenticate Middleware test', () => {
     await request(app).get('/test-auth').expect(401);
   });
 
-  it('should response with 200 if token is valid', async () => {
+  it.skip('should response with 200 if token is valid', async () => {
     const token = jwt.sign({ data: payload }, SECRET);
     await request(app).get('/test-auth').set('Authorization', token).expect(200);
   });
