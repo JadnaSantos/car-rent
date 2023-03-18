@@ -1,0 +1,123 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Car Rent Documentation",
+    "description": "This is an API Car Rent",
+    "version": "1.0.0",
+    "contact": {
+      "email": "jadna.developer@gmail.com"
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create user",
+        "description": "This route is responsible for registering users",
+        "requestBody": {
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "users": {
+                  "value": {
+                    "username": "test.example@gmail.com",
+                    "password": "B129329",
+                    "phone": "0932929329"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Please check the username and password fields and try again"
+          },
+          "409": {
+            "description": "User already exists!"
+          },
+          "201": {
+            "description": "Ok",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "object",
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile": {
+      "get": {
+        "tags": ["Users Profile"],
+        "summary": "User Profile",
+        "description": "This route is responsible show user profiller",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "404": {
+            "description": "User not found"
+          },
+          "201": {
+            "description": "Ok",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "object",
+                  "id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
