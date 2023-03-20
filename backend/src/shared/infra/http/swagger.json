@@ -8,6 +8,7 @@
       "email": "jadna.developer@gmail.com"
     }
   },
+  "schemes": ["http", "https"],
   "components": {
     "securitySchemes": {
       "bearerAuth": {
@@ -53,18 +54,15 @@
           }
         },
         "responses": {
-          "400": {
-            "description": "Please check the username and password fields and try again"
-          },
-          "409": {
-            "description": "User already exists!"
-          },
           "201": {
             "description": "Ok",
             "content": {
               "aplication/json": {
                 "schema": {
                   "type": "object",
+                  "id": {
+                    "type": "string"
+                  },
                   "username": {
                     "type": "string"
                   },
@@ -73,10 +71,27 @@
                   },
                   "phone": {
                     "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "datetime": "string"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "datetime": "string"
                   }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Please check the username and password fields and try again"
+          },
+          "409": {
+            "description": "User already exists!"
           }
         }
       }
@@ -110,6 +125,65 @@
                     "type": "string"
                   },
                   "avatar": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signin": {
+      "post": {
+        "tags": ["Signin User"],
+        "summary": "Signin User",
+        "description": "This route is responsible login user",
+        "requestBody": {
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "siging": {
+                  "value": {
+                    "username": "test.example@gmail.com",
+                    "password": "B129329"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Please check the username and password fields and try again"
+          },
+          "404": {
+            "description": "User or password not incorrect!"
+          },
+          "201": {
+            "description": "Ok",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "object",
+                  "id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "token": {
                     "type": "string"
                   }
                 }
