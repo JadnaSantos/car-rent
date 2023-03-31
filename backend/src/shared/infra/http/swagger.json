@@ -154,7 +154,7 @@
                 }
               },
               "examples": {
-                "siging": {
+                "signin": {
                   "value": {
                     "username": "test.example@gmail.com",
                     "password": "B129329"
