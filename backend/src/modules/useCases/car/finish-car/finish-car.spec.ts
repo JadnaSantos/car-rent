@@ -39,7 +39,7 @@ const makeSut = (): SutTypes => {
     deleteCar: jest.fn().mockResolvedValue(null),
     listCars: jest.fn().mockResolvedValue(null),
     updateCar: jest.fn().mockResolvedValue(null),
-    getCarById: jest.fn().mockResolvedValue(null),
+    getCarById: jest.fn().mockResolvedValue(fakeRequest as any),
     finishCar: jest.fn().mockResolvedValue(fakeRequest)
 
   };
@@ -62,9 +62,9 @@ describe('Finish Car use case', () => {
 
     const { sut, carRepositorySub } = makeSut();
 
-    await carRepositorySub.finishCar(fakeRequest.userId);
+    carRepositorySub.getCarById.mockResolvedValueOnce(fakeRequest as any);
 
-    expect(sut.execute('03', '01')).rejects.toThrow(NotFoundError);
+    await expect(sut.execute('03', '01')).rejects.toThrow(NotFoundError);
   });
 });
 
