@@ -25,7 +25,7 @@ const fakeCarsReponse = {
 
 const makeSut = (): SutTypes => {
   const deleteCarRepositorySub: jest.Mocked<CarsRepository> = {
-    getCarById: jest.fn().mockResolvedValue(null),
+    getCarById: jest.fn().mockResolvedValue(fakeCarsReponse as any),
     listCars: jest.fn().mockResolvedValue(null),
     create: jest.fn().mockResolvedValue(null),
     deleteCar: jest.fn().mockResolvedValue(fakeCarsReponse),
@@ -51,7 +51,7 @@ describe('Details Car use case test', () => {
   it('should not be able to delete car if user is not owner of car', async () => {
     const { sut, deleteCarRepositorySub } = makeSut();
 
-    deleteCarRepositorySub.deleteCar.mockResolvedValueOnce(fakeCarsReponse);
+    deleteCarRepositorySub.getCarById.mockResolvedValueOnce(fakeCarsReponse as any);
 
     await expect(sut.execute('00', '2')).rejects.toThrow(NotFoundError);
   });

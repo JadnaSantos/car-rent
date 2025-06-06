@@ -8,12 +8,13 @@ class RemoveCarUseCase {
   ) { }
 
   async execute(id: string, userId: string): Promise<CarsDTO> {
-    const car = await this.deleteCarRepository.deleteCar(id);
+    const car = await this.deleteCarRepository.getCarById(id);
 
-    if (car.userId !== userId) {
+    if (!car || car.userId !== userId) {
       throw new NotFoundError('You not owner of this car');
     }
-    return car;
+
+    return this.deleteCarRepository.deleteCar(id);
 
   }
 

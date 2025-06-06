@@ -1,4 +1,4 @@
-import { Car } from '@prisma/client';
+import { Car } from '../../../../@types/prisma-models';
 import { CarsDTO } from '../../../../modules/useCases/car/dtos';
 import { ICarsRepository } from '../interfaces/ICarsRepository';
 import { prisma } from '../prisma/config';

@@ -1,4 +1,4 @@
-import { User } from '@prisma/client';
+import { User } from '../../../../@types/prisma-models';
 import { UserDTO } from '../../../../modules/useCases/user/sign-up/dtos';
 
 interface IUsersRepository {

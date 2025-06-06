@@ -1,6 +1,6 @@
 
 import { UserDTO } from './dtos';
-import { User } from '@prisma/client';
+import { User } from '../../../../@types/prisma-models';
 import { PasswordEncrypter } from '../../../contracts/PasswordEncrypter';
 import { ConflictError } from '../../../../shared/infra/http/errors/conflict';
 import { IUsersRepository } from '../../../../shared/infra/database/interfaces/IUserRepository';
